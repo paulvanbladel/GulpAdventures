@@ -1,0 +1,7 @@
+{
+  "directory": "client/app/bower_components",
+  "scripts": {
+    "postinstall": "gulp index",
+    "preuninstall": "gulp index"
+  }
+}
