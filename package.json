@@ -18,6 +18,6 @@
     "main-bower-files": "^2.5.0"
   },
   "dependencies": {
-    "express": "^4.12.2",
+    "express": "^4.12.2"
   }
 }
