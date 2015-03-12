@@ -13,7 +13,7 @@ gulp.task('index', function () {
         .pipe(gulp.dest(config.clientApp));
 });
 
-gulp.task('startWebServer', ['nodeApplication'], function () {
+gulp.task('webserver', ['nodejs'], function () {
     return gulp.src([config.clientApp])
         .pipe(webserver({
             livereload: true,
@@ -30,7 +30,7 @@ gulp.task('startWebServer', ['nodeApplication'], function () {
 
 });
 
-gulp.task('nodeApplication', function () {
+gulp.task('nodejs', function () {
     nodemon({script: config.serverIndex})
         .on('change', function () {
             log('nodemon detected change...!')
@@ -39,8 +39,8 @@ gulp.task('nodeApplication', function () {
             log('node application is restarted!')
         })
 });
-
-gulp.task('default', ['startWebServer']);
+gulp.task('help', $.taskListing);
+gulp.task('default', ['webserver']);
 
 ////////////////////////////////////////////////////////////////////
 function log(msg) {

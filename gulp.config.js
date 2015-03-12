@@ -1,6 +1,4 @@
-/**
- * Created by paul on 11/03/2015.
- */
+
 module.exports = function () {
     var path = require('path');
     var root = './';
