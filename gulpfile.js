@@ -1,15 +1,15 @@
 var gulp = require('gulp');
 var webserver = require('gulp-webserver');
 var nodemon = require('gulp-nodemon');
-var $ = require('gulp-load-plugins')({lazy: true});
+var plugin = require('gulp-load-plugins')({lazy: true});
 var bowerFiles = require('main-bower-files');
 var config = require('./gulp.config')();
 
 gulp.task('index', function () {
     return gulp.src(config.clientIndex)
-        .pipe($.inject(gulp.src(bowerFiles(), {read: false}), {name: 'bower', relative: true}))
-        .pipe($.inject(gulp.src(config.js, {read: false}), {relative: true}))
-        .pipe($.inject(gulp.src(config.css, {read: false}), {relative: true}))
+        .pipe(plugin.inject(gulp.src(bowerFiles(), {read: false}), {name: 'bower', relative: true}))
+        .pipe(plugin.inject(gulp.src(config.js, {read: false}), {relative: true}))
+        .pipe(plugin.inject(gulp.src(config.css, {read: false}), {relative: true}))
         .pipe(gulp.dest(config.clientApp));
 });
 
@@ -39,12 +39,12 @@ gulp.task('nodejs', function () {
             log('node application is restarted!')
         })
 });
-gulp.task('help', $.taskListing);
+gulp.task('help', plugin.taskListing);
 gulp.task('default', ['webserver']);
 
 ////////////////////////////////////////////////////////////////////
 function log(msg) {
     var date = new Date();
-    $.util.log( $.util.colors.green( msg));
+    plugin.util.log( plugin.util.colors.green( msg));
 
 }
