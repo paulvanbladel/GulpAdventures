@@ -1,4 +1,3 @@
-
 module.exports = function () {
     var path = require('path');
     var root = './';
@@ -8,18 +7,28 @@ module.exports = function () {
     var serverApp = server;
 
     var config = {
-        clientApp : clientApp,
-        clientIndex: path.join(clientApp, 'index.html'),
-        serverIndex : path.join(serverApp, 'server.js'),
+        client : client,
+        server: server,
+        clientApp: clientApp,
+        clientIndex: path.join(client, 'index.html'),
+
+        serverIndex: path.join(serverApp, 'server.js'),
         js: [
-            path.join(clientApp,'js/*.js'),
-            path.join(clientApp,'modules/*.js'),
-            path.join(clientApp,'modules/**/*.js')
+            path.join(clientApp, 'js/*.js'),
+            path.join(clientApp, 'modules/*.js'),
+            path.join(clientApp, 'modules/**/*.js')
         ],
-        css:[
-            path.join(clientApp,'css/**/*.css'),
-            path.join(clientApp,'modules/**/*.css')
-            ]
+        css: [
+            path.join(clientApp, 'css/**/*.css'),
+            path.join(clientApp, 'modules/**/*.css')
+        ],
+        optimized: {
+            app: 'app.js',
+            lib: 'lib.js'
+        },
+        build: path.join(root, 'build'),
+        defaultNodePort: 4000,
+        defaultWebServerPort: 7000
     };
     return config;
 };

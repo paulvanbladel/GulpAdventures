@@ -2,12 +2,12 @@ var express = require('express')
 var app = express()
 
 app.get('/api/test', function (req, res) {
-  res.send('Hello World!( dddd !')
+  res.send(['Hello World!','paulus']);
 })
 
 
-
-var server = app.listen(3007, function () {
+var port = process.env.PORT || 3007;
+var server = app.listen(port, function () {
 
   var host = server.address().address
   var port = server.address().port

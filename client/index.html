@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"/>
+    <title ng-bind="title"></title>
+    <base href="/">
+    <!-- build:css styles/lib.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="app/bower_components/bootstrap/dist/css/bootstrap.css">
+    <!-- endinject -->
+    <!-- endbuild -->
+
+    <!-- build:css styles/app.css-->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="app/css/myapp.css">
+    <!-- endinject -->
+    <!-- endbuild -->
+</head>
+<body ng-controller="myController">
+<div>
+    <p>hi there  : </p>
+
+    <div ng-repeat="item in serviceOutput">
+        <div>{{item}}</div>
+    </div>
+</div>
+<!-- build:js js/lib.js -->
+<!-- bower:js -->
+<script src="app/bower_components/angular/angular.js"></script>
+<script src="app/bower_components/angular-resource/angular-resource.js"></script>
+<!-- endinject -->
+<!-- endbuild -->
+
+<!-- build:js js/app.js-->
+<!-- inject:js -->
+<script src="app/modules/myapp.js"></script>
+<script src="app/modules/customerModule/myController.js"></script>
+<script src="app/modules/customerModule/myService.js"></script>
+<!-- endinject -->
+<!-- inject:templates:js -->
+<!-- endinject -->
+
+<!-- endbuild -->
+</body>
+</html>
