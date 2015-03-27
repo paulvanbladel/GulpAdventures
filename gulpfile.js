@@ -22,7 +22,7 @@ gulp.task('build', ['index'], function () {
     var cssFilter = plugin.filter('**/*.css');
     var jsLibFilter = plugin.filter('**/' + config.optimized.lib);
     var jsAppFilter = plugin.filter('**/' + config.optimized.app);
-//fromp https://github.com/jamesknelson/gulp-rev-replace
+    //from https://github.com/jamesknelson/gulp-rev-replace
     return gulp
         .src(config.clientIndex)
         .pipe(plugin.plumber())
@@ -94,6 +94,14 @@ gulp.task('nodejs', function () {
         })
         .on('restart', function () {
             log('node application is restarted!')
+        })
+        .on('restart', function(ev) {
+            log('*** nodemon restarted');
+            log('files changed on restart:\n' + ev);
+            setTimeout(function() {
+                browserSync.notify('reloading now ...');
+                browserSync.reload({stream: false});
+            }, 1000);
         })
 });
 gulp.task('help', plugin.taskListing);

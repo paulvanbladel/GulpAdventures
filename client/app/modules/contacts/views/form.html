@@ -1,0 +1,74 @@
+<h4>
+  <a href="" ui-sref="^.list" class="btn btn-default"><i class="fa fa-arrow-left"></i></a>
+
+  <span ng-show="!contact._id">Add a new contact</span>
+  <span ng-show="contact._id">Edit contact</span>
+
+</h4>
+
+<form class="form-horizontal" role="form" >
+
+  <fieldset>
+    <legend>Basic Information</legend>
+    <div class="form-group">
+      <label for="lastName" class="col-sm-3 control-label">Last Name</label>
+      <div class="col-sm-9">
+        <input type="text" id="lastName" name="lastName" class="form-control"
+               ng-model="contact.lastName" />
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="firstName" class="col-sm-3 control-label">First Name</label>
+      <div class="col-sm-9">
+        <input type="text" id="firstName" name="firstName" class="form-control"
+               ng-model="contact.firstName" />
+      </div>
+    </div>
+
+
+
+  </fieldset>
+  <br />
+
+  <fieldset>
+    <legend>Address</legend>
+    <div class="form-group">
+      <label for="street" class="col-sm-3 control-label">Street</label>
+      <div class="col-sm-9">
+        <input type="text" id="street" name="street" class="form-control"
+               ng-model="contact.street" />
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="city" class="col-sm-3 control-label">City</label>
+      <div class="col-sm-9">
+        <input type="text" id="city" name="city" class="form-control"
+               ng-model="contact.city" />
+      </div>
+    </div>
+  </fieldset>
+  <br />
+
+  <fieldset>
+    <legend>Notes</legend>
+    <div class="form-group">
+      <div class="col-sm-3"></div>
+      <div class="col-sm-9">
+        <textarea name="notes" id="notes" class="form-control" rows="5" cols="40"
+                  ng-model="contact.notes"></textarea>
+      </div>
+    </div>
+  </fieldset>
+
+  <div class="col-sm-offset-3 col-sm-9">
+    <div class="alert alert-danger" ng-if="addError">Could not add contact!</div>
+
+    <input type="submit" class="btn btn-primary" value="Save"
+           ng-click="onSubmit()" />
+  </div>
+
+</form>
+
+
+
+<pre>{{contact | json}}</pre>

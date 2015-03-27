@@ -1,0 +1,20 @@
+
+<header class="header">
+    <a class="logo" href="/">{{ getSetting('appName') }}</a>
+    <navbar></navbar>
+</header>
+
+
+    <aside>
+        <ul class="nav nav-pills ">
+            <li ng-repeat="item in menuoptions" ui-sref-active="active">
+                <a class="" href="" ui-sref="{{item.sref}}"><i class="fa fa-fw {{item.icon}}"></i> {{item.name }}</a>
+            </li>
+        </ul>
+    </aside>
+<div class="container">
+    <aside ui-view class="right-side at-view-fade-in at-view-fade-out"></aside>
+
+
+
+</div>

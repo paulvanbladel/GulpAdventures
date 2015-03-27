@@ -12,7 +12,7 @@ module.exports = function () {
         clientApp: clientApp,
         clientIndex: path.join(client, 'index.html'),
 
-        serverIndex: path.join(serverApp, 'server.js'),
+        serverIndex: path.join(serverApp, 'app.js'),
         js: [
             path.join(clientApp, 'js/*.js'),
             path.join(clientApp, 'modules/*.js'),
